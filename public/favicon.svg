@@ -1,0 +1,32 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path
+     d="M 7.4038839,28.030883 V 6.2179454 H 19.786117 V 8.6681662 H 9.937922 v 7.2311368 h 9.099502 v 2.450221 h -9.04191 v 9.681359 z"
+     id="letter"/>
+  <path
+     d="M 24.591405,29.183679 V 1.6103773 h 2.639996 V 29.183679 Z"
+     id="caret"
+     transform="scale(0.98167921,1.0186627)" />
+    <style>
+      #caret {
+        fill: #ffd500;
+        stroke-width: 1;
+      }
+
+      #letter {
+        fill: #0c101e;
+        stroke: #0c101e;
+        stroke-width: 2;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        #caret {
+          fill: #704be0;
+        }
+
+        #letter {
+          fill: #e5e7eb;
+          stroke: #e5e7eb;
+        }
+      }
+   </style>
+</svg>
