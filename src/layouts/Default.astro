@@ -1,6 +1,7 @@
 ---
 // import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import { SEO } from "astro-seo";
+import Prefetch from '@julian_cataldo/astro-prefetch/Prefetch.astro';
 
 export interface Props {
 	title: string;
@@ -22,12 +23,9 @@ const { title, description, longTitle, date } = Astro.props as Props;
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="generator" content={Astro.generator} />
-	<!-- <meta name="description" content={description}>
-	<title>{title} | Francis Kafieh</title> -->
-	<!-- <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap">
-	</GoogleFontsOptimizer> -->
-	<SEO title={title} openGraph={{ basic: { title: longTitle || title, type: 'website' , image: '/favicon.svg' },
-		image: { alt: 'Francis Kafieh website favicon' } }} description={description} />
+	<SEO title={title + " | Francis Kafieh" } openGraph={{ basic: { title: longTitle || title, type: 'website' ,
+		image: '/favicon.svg' }, image: { alt: 'Francis Kafieh website favicon' } }} description={description} />
+	<Prefetch />
 </head>
 
 <body>

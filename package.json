@@ -15,11 +15,13 @@
     "@astrojs/svelte": "^1.0.0",
     "astro": "^1.0.3",
     "astro-compress": "^0.0.18",
+    "astro-fonts-next": "^1.0.5",
     "astro-robots-txt": "^0.3.7",
     "astro-seo": "^0.5.1",
     "svelte": "^3.49.0"
   },
   "dependencies": {
+    "@julian_cataldo/astro-prefetch": "^0.12.2",
     "typescript": "^4.7.4"
   }
 }
