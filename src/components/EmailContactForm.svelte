@@ -15,7 +15,7 @@
     <input
     type="hidden"
     name="_redirect"
-    value="/thanks"
+    value="https://franciskafieh.com/form-submitted"
   />
     <input type="hidden" name="_error" value="https://test.com/error" />
     <input type="hidden" name="_append" value="false" />
