@@ -1,5 +1,5 @@
 ---
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+// import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import { SEO } from "astro-seo";
 
 export interface Props {
@@ -24,8 +24,8 @@ const { title, description, longTitle, date } = Astro.props as Props;
 	<meta name="generator" content={Astro.generator} />
 	<!-- <meta name="description" content={description}>
 	<title>{title} | Francis Kafieh</title> -->
-	<GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap">
-	</GoogleFontsOptimizer>
+	<!-- <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap">
+	</GoogleFontsOptimizer> -->
 	<SEO title={title} openGraph={{ basic: { title: longTitle || title, type: 'website' , image: '/favicon.svg' },
 		image: { alt: 'Francis Kafieh website favicon' } }} description={description} />
 </head>
