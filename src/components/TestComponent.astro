@@ -1,0 +1,14 @@
+---
+// export interface Props {
+//     test: any;
+// }
+export let func = () => alert('ok!');
+// const { test } = Astro.props as Props;
+
+---
+
+<button>uh oh</button>
+
+<script>
+    document.querySelector('button')!.addEventListener("click", { func });
+</script>

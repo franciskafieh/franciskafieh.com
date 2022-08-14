@@ -1,0 +1,4 @@
+Home
+Contact
+Projects
+Blog
