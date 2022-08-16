@@ -7,7 +7,7 @@ import fonts from 'astro-fonts-next';
 import tailwind from "@astrojs/tailwind";
 import mdx from '@astrojs/mdx';
 
-import { getReadTime } from './src/lib/remark-read-time.mjs';
+import { getReadTime } from './remark-read-time.mjs';
 import remarkCapitalize from 'remark-capitalize';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeAddClasses from 'rehype-add-classes';
