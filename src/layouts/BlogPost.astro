@@ -1,0 +1,16 @@
+---
+import Page from "./Page.astro";
+const { readTime } = Astro.props.frontmatter;
+---
+
+<Page title="dsfsdf" description="s">
+    <p>{readTime}</p>
+
+    <head>
+        <link rel="stylesheet" href="/prism-material-palenight.css">
+    </head>
+
+    <div class="prose">
+        <slot />
+    </div>
+</Page>
