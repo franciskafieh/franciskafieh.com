@@ -1,18 +1,20 @@
 {
-    "rewrites": [
-        {
-            "source": "/u.js",
-            "destination": "https://analytics.franciskafieh.com/umami.js"
-        },
-        {
-            "source": "/api/collect",
-            "destination": "https://analytics.franciskafieh.com/api/collect"
-        }
-    ],
-    "redirects": [
-		{
-			"source": "/twitter",
-			"destination": "https://twitter.com/franciskafieh"
-		}
-    ]
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/u.js",
+      "destination": "https://analytics.franciskafieh.com/umami.js"
+    },
+    {
+      "source": "/api/collect",
+      "destination": "https://analytics.franciskafieh.com/api/collect"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/twitter",
+      "destination": "https://twitter.com/franciskafieh"
+    }
+  ]
 }

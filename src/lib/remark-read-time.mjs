@@ -12,5 +12,5 @@ export function getReadTime() {
     });
 
     file.data.astro.frontmatter.readTime = getReadingTime(content).text;
-  }
+  };
 }
