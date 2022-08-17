@@ -34,7 +34,9 @@ export default defineConfig({
   }), tailwind(), prefetch({
     // select all internal links
     selector: "a[href^='/']"
-  }), critters()],
+  }), 
+  // critters()
+],
   experimental: {
     integrations: true
   },
