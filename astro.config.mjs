@@ -35,7 +35,7 @@ export default defineConfig({
       }]]
     }
   }), fonts({
-    url: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap'
+    url: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap'
   }),
   tailwind(),
   prefetch({
