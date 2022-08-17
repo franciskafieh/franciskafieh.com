@@ -12,7 +12,7 @@ import { h } from "hastscript";
 import { rehypePrismCommon } from "rehype-prism-plus";
 import prefetch from "@astrojs/prefetch";
 
-import critters from "astro-critters";
+// import critters from "astro-critters";
 
 // https://astro.build/config
 export default defineConfig({
