@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import robotsTxt from "astro-robots-txt";
-import partytown from "@astrojs/partytown";
+// import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
 import tailwind from "@astrojs/tailwind";
@@ -17,7 +17,7 @@ import critters from "astro-critters";
 // https://astro.build/config
 export default defineConfig({
   site: "https://franciskafieh.com",
-  integrations: [partytown(), robotsTxt(), sitemap(), compress(), mdx({
+  integrations: [robotsTxt(), sitemap(), compress(), mdx({
     remarkPlugins: {
       extends: [getReadTime, remarkCapitalize]
     },
