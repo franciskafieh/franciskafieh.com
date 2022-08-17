@@ -10,51 +10,36 @@ import remarkCapitalize from "remark-capitalize";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { h } from "hastscript";
 import { rehypePrismCommon } from "rehype-prism-plus";
-
 import prefetch from "@astrojs/prefetch";
+
+import critters from "astro-critters";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://franciskafieh.com",
-  integrations: [
-    partytown(),
-    robotsTxt(),
-    sitemap(),
-    compress(),
-    mdx({
-      remarkPlugins: {
-        extends: [getReadTime, remarkCapitalize],
-      },
-      rehypePlugins: {
-        extends: [
-          [
-            rehypeAutolinkHeadings,
-            {
-              content(_node) {
-                return [h("span", "#")];
-              },
-            },
-          ],
-          [
-            rehypePrismCommon,
-            {
-              ignoreMissing: true,
-            },
-          ],
-        ],
-      },
-    }),
-    tailwind(),
-    prefetch({
-      // select all internal links
-      selector: "a[href^='/']",
-    }),
-  ],
+  integrations: [partytown(), robotsTxt(), sitemap(), compress(), mdx({
+    remarkPlugins: {
+      extends: [getReadTime, remarkCapitalize]
+    },
+    rehypePlugins: {
+      extends: [[rehypeAutolinkHeadings, {
+        content(_node) {
+          return [h("span", "#")];
+        }
+
+      }], [rehypePrismCommon, {
+        ignoreMissing: true
+      }]]
+    }
+  }), tailwind(), prefetch({
+    // select all internal links
+    selector: "a[href^='/']"
+  }), critters()],
   experimental: {
-    integrations: true,
+    integrations: true
   },
   markdown: {
     // using rehype-prism-plus
-    syntaxHighlight: false,
-  },
+    syntaxHighlight: false
+  }
 });
