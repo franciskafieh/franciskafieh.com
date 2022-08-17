@@ -18,7 +18,6 @@
     "astro": "^1.0.3",
     "astro-compress": "^0.0.18",
     "astro-critters": "^1.0.0",
-    "astro-fonts-next": "^1.0.5",
     "astro-robots-txt": "^0.3.7",
     "astro-seo": "^0.5.1",
     "typescript": "^4.7.4"
