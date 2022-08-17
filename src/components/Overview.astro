@@ -1,0 +1,17 @@
+---
+import type { MarkdownHeading } from "astro";
+
+export interface Props {
+    headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props as Props;
+---
+
+<ul>
+    {headings
+    .filter(heading => heading.depth === 2)
+    .map((heading) => (
+    <li class="text-yellow-200">{heading.text}</li>
+    ))}
+</ul>

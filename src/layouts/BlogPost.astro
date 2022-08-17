@@ -1,10 +1,14 @@
 ---
+import Overview from "../components/Overview.astro";
 import Page from "./Page.astro";
 const { readTime } = Astro.props.frontmatter;
+
+const { headings } = Astro.props;
 ---
 
 <Page title="dsfsdf" description="s">
     <p>{readTime}</p>
+    <Overview headings={headings} />
 
     <head>
         <link rel="stylesheet" href="/prism-material-palenight.css">

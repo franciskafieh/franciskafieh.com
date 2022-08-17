@@ -18,7 +18,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #292d3e;
+  background: #121931;
 }
 
 :not(pre) > code[class*="language-"] {
@@ -116,14 +116,6 @@ pre[class*="language-"] {
   cursor: help;
 }
 
-
-
-
-
-
-
-
-
 /* ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDED by https://github.com/timlrx/rehype-prism-plus */
 pre {
   overflow-x: auto;
@@ -145,8 +137,6 @@ pre {
   padding-right: 16px;
   margin-left: -16px;
   margin-right: -16px;
-  border-left-width: 4px;
-  border-left-color: rgba(31, 41, 55, 0); /* Set code block color */
 }
 
 .code-line.inserted {
@@ -161,8 +151,6 @@ pre {
   margin-left: -16px;
   margin-right: -16px;
   background-color: rgba(55, 65, 81, 0.5); /* Set highlight bg color */
-  border-left-width: 4px;
-  border-left-color: rgb(59, 130, 246); /* Set highlight accent border color */
 }
 
 .line-number::before {

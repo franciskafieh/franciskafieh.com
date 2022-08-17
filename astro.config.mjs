@@ -31,12 +31,11 @@ export default defineConfig({
       }], [rehypeAddClasses, {
         h1: 'group'
       }], [rehypePrismCommon, {
-        showLineNumbers: true,
         ignoreMissing: true
       }]]
     }
   }), fonts({
-    url: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Montserrat:wght@400;700;800&display=swap'
+    url: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap'
   }),
   tailwind(),
   prefetch({

@@ -8,8 +8,7 @@ module.exports = {
 	],
 	theme: {
 		fontFamily: {
-			'sans': ['Montserrat', ...defaultTheme.fontFamily.sans],
-			'mono': ['JetBrains Mono', ...defaultTheme.fontFamily.mono]
+			'sans': ['Montserrat', ...defaultTheme.fontFamily.sans]
 		},
 		extend: {
 			typography: ({ theme }) => {
