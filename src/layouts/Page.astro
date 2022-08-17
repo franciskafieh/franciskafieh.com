@@ -1,6 +1,7 @@
 ---
 import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
+import '../styles/base.css';
 
 export interface Props {
 	title: string;
@@ -12,6 +13,11 @@ export interface Props {
 }
 
 const { title, description, longTitle, date } = Astro.props.frontmatter as Props || Astro.props as Props;
+
+// import "@fontsource/montserrat";
+// import "@fontsource/montserrat/400-italic.css";
+// import "@fontsource/montserrat/700.css";
+// import "@fontsource/montserrat/900.css";
 ---
 
 <!DOCTYPE html>

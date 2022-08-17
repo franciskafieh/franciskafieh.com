@@ -3,13 +3,11 @@ import robotsTxt from 'astro-robots-txt';
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
-import fonts from 'astro-fonts-next';
 import tailwind from "@astrojs/tailwind";
 import mdx from '@astrojs/mdx';
 import { getReadTime } from './src/lib/remark-read-time.mjs';
 import remarkCapitalize from 'remark-capitalize';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeAddClasses from 'rehype-add-classes';
 import { h } from 'hastscript';
 import { rehypePrismCommon } from 'rehype-prism-plus';
 
@@ -25,17 +23,13 @@ export default defineConfig({
     rehypePlugins: {
       extends: [[rehypeAutolinkHeadings, {
         content(_node) {
-          return [h('span.group-hover:text-red-400', '#')];
+          return [h('span', '#')];
         }
 
-      }], [rehypeAddClasses, {
-        h1: 'group'
       }], [rehypePrismCommon, {
         ignoreMissing: true
       }]]
     }
-  }), fonts({
-    url: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap'
   }),
   tailwind(),
   prefetch({
