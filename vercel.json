@@ -1,11 +1,4 @@
 {
-	"rewrites": [
-		{
-			"source": "/script.js",
-			"destination": "https://analytics.franciskafieh.com/umami.js"
-		}
-    ],
-
     "redirects": [
 		{
 			"source": "/twitter",
