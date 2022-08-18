@@ -1,13 +1,13 @@
 ---
 import MobileNavMenu from "./MobileNavMenu.astro";
-import ThemeToggle from "./ThemeToggle.astro";
+import ThemeToggle from "./ThemeToggle.svelte";
 
 ---
 
 <div class="z-10 mb-10 flex flex-row items-center justify-between whitespace-nowrap text-accent">
     <div class="flex">
         <a class="mr-2 text-3xl font-bold" href="/">Francis Kafieh</a>
-        <ThemeToggle />
+        <ThemeToggle client:idle />
     </div>
     <div>
         <nav>

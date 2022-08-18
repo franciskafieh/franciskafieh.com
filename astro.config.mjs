@@ -10,9 +10,11 @@ import remarkCapitalize from "remark-capitalize";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { h } from "hastscript";
 import { rehypePrismCommon } from "rehype-prism-plus";
-import prefetch from "@astrojs/prefetch";
+import prefetch from "@astrojs/prefetch"; // import critters from "astro-critters";
 
-// import critters from "astro-critters";
+// https://astro.build/config
+
+import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,9 +36,7 @@ export default defineConfig({
   }), tailwind(), prefetch({
     // select all internal links
     selector: "a[href^='/']"
-  }), 
-  // critters()
-],
+  }), svelte()],
   experimental: {
     integrations: true
   },
