@@ -1,0 +1,24 @@
+---
+import MobileNavMenu from "./MobileNavMenu.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+---
+
+<div class="z-10 mb-10 flex flex-row items-center justify-between whitespace-nowrap text-accent">
+    <div class="flex">
+        <a class="mr-2 text-3xl font-bold" href="/">Francis Kafieh</a>
+        <ThemeToggle />
+    </div>
+    <div>
+        <nav>
+            <!-- mobile -->
+            <MobileNavMenu />
+            <!-- desktop -->
+            <ul class=" md:flex flex-row justify-between space-x-10 underline hidden text-2xl">
+                <li>first</li>
+                <li>second</li>
+                <li>third</li>
+            </ul>
+        </nav>
+    </div>
+</div>

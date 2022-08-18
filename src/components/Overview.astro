@@ -8,10 +8,11 @@ export interface Props {
 const { headings } = Astro.props as Props;
 ---
 
+<p class="font-bold text-blue-300">OVERVIEW</p>
 <ul>
     {headings
     .filter(heading => heading.depth === 2)
     .map((heading) => (
-    <li class="text-yellow-200">{heading.text}</li>
+    <li class="text-blue-300">{heading.text}</li>
     ))}
 </ul>

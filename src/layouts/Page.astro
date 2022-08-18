@@ -1,6 +1,7 @@
 ---
 import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
 import '../styles/base.css';
 
 export interface Props {
@@ -16,7 +17,7 @@ const { title, description, longTitle, date } = Astro.props.frontmatter as Props
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
 	<meta charset="UTF-8" />
@@ -31,11 +32,22 @@ const { title, description, longTitle, date } = Astro.props.frontmatter as Props
 	<link rel="preload" href="/fonts/montserrat-italic.woff2" as="font" type="font/woff2" crossorigin>
 	<SEO title={title + " | Francis Kafieh" } openGraph={{ basic: { title: longTitle || title, type: 'website' ,
 		image: '/favicon.svg' }, image: { alt: 'Francis Kafieh website favicon' } }} description={description} />
+	<script>
+		const stored = localStorage.getItem('prefersLight');
+
+		const prefersLight = stored ? Boolean(stored) : window.matchMedia('(prefers-color-scheme: light)').matches;
+		localStorage.setItem('prefersLight', prefersLight.toString());
+
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+			document.querySelector('html')!.classList.remove('dark');
+		}
+	</script>
 	<script async defer data-website-id="b9e5dd9a-0df5-4227-b8bd-cba27fd1d492" data-do-not-track="false"
 		src="https://www.franciskafieh.com/u.js" type="text/partytown"></script>
 </head>
 
-<body>
+<body class="bg-background text-primary">
+	<Navbar />
 	<slot />
 	<Footer />
 </body>
