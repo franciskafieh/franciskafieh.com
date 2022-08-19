@@ -11,55 +11,41 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { h } from "hastscript";
 import { rehypePrismCommon } from "rehype-prism-plus";
 import prefetch from "@astrojs/prefetch"; // import critters from "astro-critters";
+
 import solidJs from "@astrojs/solid-js";
+
+import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://franciskafieh.com",
-  integrations: [
-    robotsTxt(),
-    sitemap(),
-    compress(),
-    mdx({
-      remarkPlugins: {
-        extends: [getReadTime, remarkCapitalize],
-      },
-      rehypePlugins: {
-        extends: [
-          [
-            rehypeAutolinkHeadings,
-            {
-              content(_node) {
-                return [h("span", "#")];
-              },
-            },
-          ],
-          [
-            rehypePrismCommon,
-            {
-              ignoreMissing: true,
-            },
-          ],
-        ],
-      },
-    }),
-    tailwind(),
-    prefetch({
-      // select all internal links
-      selector: "a[href^='/']",
-    }),
-    partytown({
-      config: {
-        forward: ["umami"],
-      },
-    }),
-    solidJs(),
-  ],
+  integrations: [robotsTxt(), sitemap(), compress(), mdx({
+    remarkPlugins: {
+      extends: [getReadTime, remarkCapitalize]
+    },
+    rehypePlugins: {
+      extends: [[rehypeAutolinkHeadings, {
+        content(_node) {
+          return [h("span", "#")];
+        }
+
+      }], [rehypePrismCommon, {
+        ignoreMissing: true
+      }]]
+    }
+  }), tailwind(), prefetch({
+    // select all internal links
+    selector: "a[href^='/']"
+  }), partytown({
+    config: {
+      forward: ["umami"]
+    }
+  }), solidJs(), svelte()],
   experimental: {
-    integrations: true,
+    integrations: true
   },
   markdown: {
     // using rehype-prism-plus
-    syntaxHighlight: false,
-  },
+    syntaxHighlight: false
+  }
 });

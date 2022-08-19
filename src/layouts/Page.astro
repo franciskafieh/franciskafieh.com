@@ -3,6 +3,7 @@ import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import '../styles/base.css';
+import Button from '../components/Button.svelte';
 
 export interface Props {
 	title: string;
@@ -14,18 +15,58 @@ export interface Props {
 }
 
 const { title, description, longTitle, date } = Astro.props.frontmatter as Props || Astro.props as Props;
+
+// import { persistentAtom } from '@nanostores/persistent'
+// const theme = persistentAtom('prefersLight', 'false');
 ---
 
+<script>
+	import { prefersLight } from "../lib/stores";
+	import { get } from 'svelte/store';
+
+	// @ts-ignore
+	if (!import.meta.env.SSR && get(prefersLight)) {
+		document.querySelector('html')!.classList.add('dark');
+		document.querySelector('#h')!.innerHTML = 'after';
+	}
+</script>
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" class="dark">
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-widtif (prefersLight && !import.meta.env.SSR) {
+		document.querySelector('html')!.classList.remove('dark');
+		document.querySelector('#h')!.innerHTML = 'after';
+	}h, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="generator" content={Astro.generator} />
+	<script>
+		// const stored = JSON.parse(localStorage.getItem('prefersLight'));
+		// const prefersLight = stored ? Boolean(stored)
+		// 	: window.matchMedia('(prefers-color-scheme: light)').matches;
+
+		// localStorage.setItem('prefersLight', prefersLight);
+
+		// window.addEventListener('load', function () {
+		// 	if (prefersLight) document.body.classList.remove('dark')
+		// });
+		// const storageValue = JSON.parse(localStorage.getItem('prefersLight')!)
+		// const prefersLight = storageValue
+		// 	? Boolean(storageValue)
+		// 	: window?.matchMedia('(prefers-color-scheme: light)').matches
+
+		// localStorage.setItem('prefersLight', prefersLight.toString())
+
+		// // default to dark mode unless explicitly set preference to light
+		// if (prefersLight) {
+		// 	document.querySelector('html')!.classList.remove('dark')
+		// }
+	</script>
 	<link rel="preload" href="/fonts/montserrat-black.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="/fonts/montserrat-regular.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="/fonts/montserrat-bold.woff2" as="font" type="font/woff2" crossorigin>
@@ -36,10 +77,12 @@ const { title, description, longTitle, date } = Astro.props.frontmatter as Props
 		src="https://www.franciskafieh.com/u.js" type="text/partytown"></script>
 </head>
 
-<body class="bg-background text-primary dark">
+<body class="bg-background text-primary">
 	<Navbar />
 	<slot />
 	<Footer />
+	<h1 id="h">before</h1>
+	<Button client:load />
 </body>
 
 </html>

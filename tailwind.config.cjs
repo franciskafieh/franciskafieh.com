@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const themeSwapper = require("tailwindcss-theme-swapper");
 
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,mdx,ts,jsx,tsx}"],
+  content: ["./src/**/*.{astro,html,js,mdx,ts,jsx,tsx,svelte}"],
   theme: {
     fontFamily: {
       sans: ["Montserrat", ...defaultTheme.fontFamily.sans],

@@ -1,11 +1,16 @@
-import { createSignal, createEffect, Show } from "solid-js";
+import { createSignal, createEffect, onMount, Show } from "solid-js";
+
 
 export default function ThemeToggle() {
   const [prefersLight, setPrefered] = createSignal<boolean>(false);
-
-  const toggle = () => setPrefered(!prefersLight());
-
-  createEffect(() => console.log("prefers light? ", prefersLight()));
+  onMount(() => {
+    setPrefered(JSON.parse(localStorage.getItem('prefersLight')!));
+  });
+  const toggle = () => {
+    document.body.classList.toggle('dark');
+    setPrefered(!prefersLight());
+    localStorage.setItem("prefersLight", prefersLight().toString());
+  };
 
   // icons from feather: https://github.com/feathericons/feather/blob/master/LICENSE
   return (

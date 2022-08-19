@@ -14,6 +14,7 @@
     "@astrojs/prefetch": "^0.0.7",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/solid-js": "^1.0.0",
+    "@astrojs/svelte": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
     "@tailwindcss/typography": "^0.5.4",
     "astro": "^1.0.3",
@@ -22,12 +23,15 @@
     "astro-robots-txt": "^0.3.7",
     "astro-seo": "^0.5.1",
     "solid-js": "^1.4.8",
+    "svelte": "^3.49.0",
     "tailwindcss-theme-swapper": "^0.6.2",
     "typescript": "^4.7.4"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.9.0",
     "@fontsource/montserrat": "^4.5.12",
+    "@nanostores/persistent": "^0.6.0",
+    "nanostores": "^0.6.0",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-prism-plus": "^1.4.2",
