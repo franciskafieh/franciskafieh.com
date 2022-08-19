@@ -5,7 +5,7 @@ import { onMount } from 'svelte';
 
 onMount(() => {
     if ($prefersLight) {
-        window.document.body.classList.toggle('dark');
+        document.body.classList.toggle('dark');
     }
 });
 

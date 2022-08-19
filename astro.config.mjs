@@ -19,7 +19,8 @@ import svelte from "@astrojs/svelte";
 // https://astro.build/config
 export default defineConfig({
   site: "https://franciskafieh.com",
-  integrations: [partytown(), robotsTxt(), sitemap(), compress(), mdx({
+  integrations: [
+    robotsTxt(), sitemap(), compress(), mdx({
     remarkPlugins: {
       extends: [getReadTime, remarkCapitalize]
     },
@@ -36,7 +37,13 @@ export default defineConfig({
   }), tailwind(), prefetch({
     // select all internal links
     selector: "a[href^='/']"
-  }), svelte()],
+  }), svelte(),
+  partytown({
+    config: { 
+      "forward": ["umami"]
+    }
+  }),
+],
   experimental: {
     integrations: true
   },
