@@ -2,7 +2,6 @@
 import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
-import ThemeInit from "../components/ThemeInit.svelte"
 import '../styles/base.css';
 
 export interface Props {
@@ -27,7 +26,6 @@ const { title, description, longTitle, date } = Astro.props.frontmatter as Props
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="generator" content={Astro.generator} />
-	<ThemeInit client:load />
 	<link rel="preload" href="/fonts/montserrat-black.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="/fonts/montserrat-regular.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="/fonts/montserrat-bold.woff2" as="font" type="font/woff2" crossorigin>
