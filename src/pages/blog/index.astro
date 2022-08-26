@@ -1,1 +1,19 @@
-<h1>test???</h1>
+---
+import Page from "../../layouts/Page.astro";
+
+const posts = await Astro.glob('../blog/post/*.mdx');
+---
+
+<Page title="Blog" description="todo">
+    {posts
+    .filter(post => !post.frontmatter.draft)
+    .map((post) => (
+    <a class="bg-slate-50 dark:bg-slate-900 rounded-lg p-4 mb-4 drop-shadow-xl overflow-hidden" href={post.url}>
+        <p class="text-accent font-bold inline-block">{post.frontmatter.title}</p>
+        <p class="text-accent inline-block"> | {post.frontmatter.readTime}</p>
+        <p>here is the desc/etc todo f f f f dsfa dsf dsfa sdf sdf ds jsdkhfdsljkfhlsahfsdljkfhsdkjfsd f sdf dsf sdf sd fds fds f sdf asdf dsf ds fads fsd fds fsad f shere is the desc/etc todo f f f f dsfa dsf dsfa sdf sdf ds afds fds fdsf d d asdas das das das das das d
+            asd
+            as das d asd asd asd sa aaaaaaaaaaaaaaaaaaaasdfdsfsdfajdsfljsdkhfdsljkfhlsahfsdljkfhsdkjfsd f sdf dsf sdf sd fds fds f sdf asdf dsf ds fads fsd fds fsad f s end!</p>
+    </a>
+    ))}
+</Page>

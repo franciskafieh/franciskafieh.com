@@ -3,7 +3,16 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const themeSwapper = require("tailwindcss-theme-swapper");
 
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,mdx,ts,jsx,tsx,svelte}"],
+  darkMode: "class",
+  content: [
+    "./src/**/*.{astro,html,js,mdx,ts,jsx,tsx,svelte}",
+    "astro.config.mjs",
+  ],
+  safelist: [
+    // generate pl classes for Overview component since it is not detected by tailwindcss
+    "pl-5",
+    "pl-10",
+  ],
   theme: {
     fontFamily: {
       sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
@@ -13,7 +22,18 @@ module.exports = {
         return {
           DEFAULT: {
             css: {
-              "h1, h2, h3, h4, h5, h6": {},
+              "--tw-prose-headings": theme("colors.accent"),
+              "--tw-prose-body": theme("colors.primary"),
+              // heading links
+              "h1, h2, h3, h4": {
+                position: "relative",
+                "&:hover > a > span": {
+                  visibility: "visible",
+                },
+              },
+              "h3, h4": {
+                color: "var(--tw-prose-body)",
+              },
             },
           },
         };

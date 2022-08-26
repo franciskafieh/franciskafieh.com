@@ -8,11 +8,25 @@ export interface Props {
 const { headings } = Astro.props as Props;
 ---
 
-<p class="font-bold text-blue-300">OVERVIEW</p>
-<ul>
-    {headings
-    .filter(heading => heading.depth === 2)
-    .map((heading) => (
-    <li class="text-blue-300">{heading.text}</li>
-    ))}
-</ul>
+<!-- TODO!!!!!!!!!! make overview go to top of page, make .current class tailwind do accent color,
+    remove all .active classes and give active heading ..current class when scrolled into view -- NEED TO WRAP ALL THINGS INTO SECTIONS TO DO THIS!!  -->
+<aside
+    class="hidden lg:inline-block sticky bottom-2/4 w-1/4 left-full"
+    id="overview"
+>
+    <p class="font-bold text-accent tracking-widest">OVERVIEW</p>
+    <ul>
+        {
+            headings.map((heading) => (
+                <li class:list={["pl-" + 5 * (heading.depth - 2)]}>
+                    <a
+                        href={"#" + heading.slug}
+                        class="text-[#98a3b1] hover:text-primary duration-300"
+                    >
+                        {heading.text}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</aside>
