@@ -18,6 +18,9 @@ module.exports = {
       sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
     },
     extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
       typography: ({ theme }) => {
         return {
           DEFAULT: {
@@ -50,6 +53,7 @@ module.exports = {
           theme: {
             colors: {
               primary: "#0C101E",
+              secondary: "#F8FAFC",
               accent: "#704BE0",
               background: "#FCF5FF",
             },
@@ -61,6 +65,7 @@ module.exports = {
           theme: {
             colors: {
               primary: "#FCF5FF",
+              secondary: "#0F172A",
               accent: "#FFD500",
               background: "#0C101E",
             },

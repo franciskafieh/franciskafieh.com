@@ -1,20 +1,60 @@
 ---
 import Page from "../layouts/Page.astro";
-
 ---
 
-<Page title="sdf" description="f">
-    <form action="https://submit-form.com/pRfx2v0b">
+<Page title="Contact" description="f">
+  <form action="https://submit-form.com/pRfx2v0b" class="max-h-full">
+    <div class="flex gap-x-4 mb-4">
+      <span class="flex-auto">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Name" required="required" />
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email" required="required" />
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Message" required="required"></textarea>
-        <input type="checkbox" name="attach" style="display:none" tabindex="-1" autocomplete="off" />
-        <input type="hidden" name="_redirect" value="https://franciskafieh.com/form-submitted" />
-        <input type="hidden" name="_error" value="https://test.com/error" />
-        <input type="hidden" name="_append" value="false" />
-        <button type="submit">Send</button>
-    </form>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name..."
+          required="required"
+          class="w-full"
+        />
+      </span>
+      <span class="flex-auto">
+        <label for="email">Return Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email..."
+          required="required"
+          class="w-full"
+        />
+      </span>
+    </div>
+    <div>
+      <label for="message" class="block">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Enter your message..."
+        required="required"
+        class="w-full h-[60vh] mb-1"></textarea>
+    </div>
+    <input
+      type="checkbox"
+      name="attach"
+      style="display:none"
+      tabindex="-1"
+      autocomplete="off"
+    />
+    <input
+      type="hidden"
+      name="_redirect"
+      value="https://franciskafieh.com/form-submitted"
+    />
+    <input
+      type="hidden"
+      name="_error"
+      value="https://franciskafieh.com/form-error"
+    />
+    <input type="hidden" name="_append" value="false" />
+    <input type="submit" value="Submit" />
+  </form>
 </Page>

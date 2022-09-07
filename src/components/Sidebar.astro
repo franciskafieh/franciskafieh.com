@@ -1,0 +1,30 @@
+---
+import type { MarkdownHeading } from "astro";
+
+export interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<aside
+  class="hidden lg:inline-block sticky bottom-[60vh] w-1/4 left-full"
+  id="overview"
+>
+  <p class="font-bold text-accent tracking-widest">OVERVIEW</p>
+  <ul>
+    {
+      headings.map((heading) => (
+        <li class:list={["pl-" + 5 * (heading.depth - 2)]}>
+          <a
+            href={"#" + heading.slug}
+            class="text-[#98a3b1] hover:text-primary no-underline"
+          >
+            {heading.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</aside>

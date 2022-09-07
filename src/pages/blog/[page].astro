@@ -1,0 +1,44 @@
+---
+import type { GetStaticPathsOptions} from "astro";
+import Page from "../../layouts/Page.astro";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  return paginate(
+    await (
+      await Astro.glob("../blog/post/*.mdx")
+    ).filter((post) => !post.frontmatter.draft),
+    { pageSize: 10 }
+  );
+}
+
+const { page } = Astro.props;
+---
+
+<Page title="Blog" description="Francis Kafieh's blog">
+  {
+    page.data.map((post: { frontmatter: any; url: any }) => (
+      <a
+        class="bg-secondary rounded-lg p-4 mb-4 drop-shadow-xl overflow-hidden no-underline text-primary reset"
+        href={post.url}
+      >
+        <p class="text-accent font-bold inline-block">
+          {post.frontmatter.title}
+        </p>
+        <p class="text-accent inline-block"> | {post.frontmatter.readTime}</p>
+        <p>
+          here is the desc/etc todo f f f f dsfa dsf dsfa sdf sdf ds
+          jsdkhfdsljkfhlsahfsdljkfhsdkjfsd f sdf dsf sdf sd fds fds f sdf asdf
+          dsf ds fads fsd fds fsad f shere is the desc/etc todo f f f f dsfa dsf
+          dsfa sdf sdf ds afds fds fdsf d d asdas das das das das das d asd as
+          das d asd asd asd sa
+          aaaaaaaaaaaaaaaaaaaasdfdsfsdfajdsfljsdkhfdsljkfhlsahfsdljkfhsdkjfsd f
+          sdf dsf sdf sd fds fds f sdf asdf dsf ds fads fsd fds fsad f s end!
+        </p>
+      </a>
+    ))
+  }
+  <div class="mx-auto m-10">
+    <button><a class="reset" href={page.url.prev}>&#60;	Prev</a></button>
+    <button><a class="reset" href={page.url.next}>Next &#62;</a></button>
+  </div>
+</Page>

@@ -2,133 +2,152 @@
 import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
+import "../lib/base.css";
 
 export interface Props {
-	title: string;
-	description: string;
-	longTitle?: string;
-	date?: string;
-	converImage?: string;
-	tags?: string[];
+  title: string;
+  description?: string;
+  longTitle?: string;
+  date?: string;
+  converImage?: string;
+  tags?: string[];
 }
 
 const { title, description, longTitle, date } =
-	(Astro.props.frontmatter as Props) || (Astro.props as Props);
+  Astro.props.frontmatter || Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link
-			rel="preload"
-			href="/fonts/montserrat-black.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>
-		<link
-			rel="preload"
-			href="/fonts/montserrat-regular.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>
-		<link
-			rel="preload"
-			href="/fonts/montserrat-bold.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>
-		<link
-			rel="preload"
-			href="/fonts/montserrat-italic.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>
-		<SEO
-			title={title + " | Francis Kafieh"}
-			openGraph={{
-				basic: {
-					title: longTitle || title,
-					type: "website",
-					image: "/favicon.svg",
-				},
-				image: { alt: "Francis Kafieh website favicon" },
-			}}
-			description={description}
-		/>
-		<script is:inline>
-			const light = localStorage.getItem("light");
-			if (light !== null) {
-				if (Boolean(JSON.parse(light))) {
-					document.querySelector("html").classList.remove("dark");
-				}
-			} else {
-				localStorage.setItem(
-					"light",
-					window.matchMedia("todo").matches
-				);
-			}
-		</script>
-		<script
-			async
-			defer
-			data-website-id="b9e5dd9a-0df5-4227-b8bd-cba27fd1d492"
-			data-do-not-track="false"
-			src="https://franciskafieh.com/u.js"
-			type="text/partytown"
-		></script>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="preload"
+      href="/fonts/montserrat-black.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/montserrat-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/montserrat-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/montserrat-italic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <SEO
+      title={title + " | Francis Kafieh"}
+      openGraph={{
+        basic: {
+          title: longTitle || title,
+          type: "website",
+          image: "/favicon.svg",
+        },
+        image: { alt: "Francis Kafieh website favicon" },
+      }}
+      description={description}
+    />
+    <script is:inline>
+      const light = localStorage.getItem("light");
+      if (light !== null) {
+        if (Boolean(JSON.parse(light))) {
+          document.querySelector("html").classList.remove("dark");
+        }
+      } else {
+        localStorage.setItem("light", window.matchMedia("todo").matches);
+      }
+    </script>
+    <script
+      async
+      defer
+      data-website-id="b9e5dd9a-0df5-4227-b8bd-cba27fd1d492"
+      data-do-not-track="false"
+      src="https://franciskafieh.com/u.js"
+      type="text/partytown"
+    ></script>
+  </head>
 
-	<body class="bg-background transition-colors">
-		<div
-			class="max-w-6xl mx-auto text-primary flex min-h-screen flex-col justify-start p-6"
-		>
-			<Navbar />
-			<slot />
-			<Footer />
-		</div>
-		<!-- <img src="/gradient.svg" class="bottom-0 sticky -z-50 rotate-180 left-0"> -->
-		<style>
-			@font-face {
-				font-display: swap;
-				font-family: "Montserrat";
-				font-style: normal;
-				font-weight: 900;
-				src: url("/fonts/montserrat-black.woff2") format("woff2");
-			}
+  <body class="bg-background transition-colors break-words">
+    <div
+      class="max-w-6xl mx-auto text-primary flex min-h-screen flex-col justify-start p-6 selection:bg-accent/30 a-"
+    >
+      <Navbar />
+      <slot />
+      <Footer />
+    </div>
+    <span class="-z-50 select-none gradient" id="blue"></span>
+    <span class="-z-50 select-none gradient" id="purple"></span>
+    <style>
+      .gradient {
+        opacity: 60%;
+        position: fixed;
+        filter: blur(50px);
+      }
 
-			@font-face {
-				font-display: swap;
-				font-family: "Montserrat";
-				font-style: normal;
-				font-weight: 400;
-				src: url("/fonts/montserrat-regular.woff2") format("woff2");
-			}
+      #blue {
+        width: 80vw;
+        height: 50vh;
+        top: -20vh;
+        left: -35vw;
 
-			@font-face {
-				font-display: swap;
-				font-family: "Montserrat";
-				font-style: normal;
-				font-weight: 700;
-				src: url("/fonts/montserrat-bold.woff2") format("woff2");
-			}
+        background: radial-gradient(
+          50% 50% at 50% 50%,
+          rgba(0, 224, 225, 1) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
 
-			@font-face {
-				font-display: swap;
-				font-family: "Montserrat";
-				font-style: italic;
-				font-weight: 400;
-				src: url("/fonts/montserrat-italic.woff2") format("woff2");
-			}
-		</style>
-	</body>
+      #purple {
+        width: 75vw;
+        height: 50vh;
+        top: -10vh;
+        left: -5vw;
+
+        background: radial-gradient(
+          50% 50% at 50% 50%,
+          rgba(112, 75, 224, 100) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+
+      @media (max-width: 1024px) {
+        #blue {
+          width: 90vw;
+        }
+
+        #purple {
+          width: 100vw;
+        }
+      }
+    </style>
+    <script defer>
+      const div = document.querySelector("body");
+      div.addEventListener("dragstart", (e) => {
+        e.preventDefault();
+      });
+
+      div.addEventListener("drop", (e) => {
+        e.preventDefault();
+      });
+    </script>
+  </body>
 </html>

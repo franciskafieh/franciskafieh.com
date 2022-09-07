@@ -12,16 +12,30 @@ import { h } from "hastscript";
 import { rehypePrismCommon } from "rehype-prism-plus";
 import prefetch from "@astrojs/prefetch";
 import sectionize from "remark-sectionize";
+import { setDefaultLayout } from "./src/lib/remark-default-layout.mjs";
+import { setPublishedEditedDates } from "./src/lib/remark-auto-pub-edit-date.mjs";
 
 export default defineConfig({
   site: "https://franciskafieh.com",
   integrations: [
-    robotsTxt(),
+    robotsTxt({
+      policy: [
+        {
+          disallow: "/form",
+        },
+      ],
+    }),
     sitemap(),
     compress(),
     mdx({
       remarkPlugins: {
-        extends: [getReadTime, remarkCapitalize, sectionize],
+        extends: [
+          getReadTime,
+          remarkCapitalize,
+          sectionize,
+          setDefaultLayout,
+          setPublishedEditedDates,
+        ],
       },
       rehypePlugins: {
         extends: [
@@ -44,16 +58,12 @@ export default defineConfig({
         ],
       },
     }),
-    tailwind(),
+    tailwind({ config: { applyBaseStyles: false } }),
     prefetch({
       // select all internal links
       selector: "a[href^='/']",
     }),
-    partytown({
-      config: {
-        forward: ["umami"],
-      },
-    }),
+    partytown(),
   ],
   experimental: {
     integrations: true,

@@ -1,55 +1,54 @@
 ---
-import Overview from "../components/Overview.astro";
+import Sidebar from "../components/Sidebar.astro";
 import Page from "./Page.astro";
 import "../lib/prism-material-palenight.css";
 
 export interface Props {
-    readTime: string;
-    title: string;
-    description: string;
-    tags: string[];
+  readTime: string;
+  title: string;
+  description: string;
+  tags: string[];
 }
 
-const { readTime, title, description, tags } = Astro.props.frontmatter as Props;
+const { readTime, title, description, tags } = Astro.props.frontmatter;
 
 const { headings } = Astro.props;
 ---
 
 <Page title={title} description={description}>
-    <article class="prose w-full lg:w-8/12 max-w-none">
-        <div class="text-center">
-            <h1 class="text-3xl font-black text-accent">{title}</h1>
-            <p>{readTime} | {tags ? tags.join(", ") : ""}</p>
-        </div>
-        <slot />
-    </article>
-    <Overview headings={headings} />
+  <article class="prose w-full lg:w-8/12 max-w-none">
+    <div class="text-center">
+      <h1 class="text-3xl font-black text-accent">{title}</h1>
+      <p>{readTime} | {tags ? tags.join(", ") : ""}</p>
+    </div>
+    <slot />
+  </article>
+  <Sidebar headings={headings} />
 </Page>
 
 <script defer>
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                const getOverviewClassListById = (id) =>
-                    document.querySelector(
-                        `#overview > ul > li > a[href="#${id}"]`
-                    ).classList;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const getOverviewClassListById = (id) =>
+          document.querySelector(`#overview > ul > li > a[href="#${id}"]`)
+            .classList;
 
-                if (entry.isIntersecting) {
-                    getOverviewClassListById(entry.target.children[0].id).add(
-                        "!text-accent"
-                    );
-                } else {
-                    getOverviewClassListById(
-                        entry.target.children[0].id
-                    ).remove("!text-accent");
-                }
-            });
-        },
-        { rootMargin: "-200px 0% -66% 0%" }
-    );
+        if (entry.isIntersecting) {
+          getOverviewClassListById(entry.target.children[0].id).add(
+            "!text-accent"
+          );
+        } else {
+          getOverviewClassListById(entry.target.children[0].id).remove(
+            "!text-accent"
+          );
+        }
+      });
+    },
+    { rootMargin: "-200px 0% -66% 0%" }
+  );
 
-    const sections = document.querySelectorAll("article section");
+  const sections = document.querySelectorAll("article section");
 
-    sections.forEach((section) => observer.observe(section));
+  sections.forEach((section) => observer.observe(section));
 </script>

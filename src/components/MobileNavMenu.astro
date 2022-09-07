@@ -1,48 +1,48 @@
 <div
-    id="mobile-bg"
-    class="md:!hidden hidden top-0 left-0 w-full h-full bg-background border-b-4 border-accent"
+  id="mobile-bg"
+  class="md:!hidden hidden top-0 left-0 w-full h-full bg-background border-b-4 border-accent"
 >
-    <ul
-        class="w-full h-full text-center hidden md:!hidden flex-col flex-auto justify-around underline text-5xl items-center"
-    >
-        <li>first</li>
-        <li>second</li>
-        <li>third</li>
-    </ul>
+  <ul
+    class="w-full h-full text-center hidden md:!hidden flex-col flex-auto justify-around underline text-5xl items-center"
+  >
+    <li>first</li>
+    <li>second</li>
+    <li>third</li>
+  </ul>
 </div>
 <button
-    id="hamburger"
-    aria-label="open mobile navigation"
-    class="md:!hidden h-5 items-center flex flex-col justify-between float-right"
-    onclick="document.querySelector('#hamburger').classList.toggle('open');"
+  id="hamburger"
+  aria-label="open mobile navigation"
+  class="md:!hidden h-5 items-center flex flex-col justify-between float-right reset"
+  onclick="document.querySelector('#hamburger').classList.toggle('open');"
 >
-    <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
-    <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
-    <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
+  <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
+  <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
+  <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
 </button>
 
 <style lang="postcss">
-    #hamburger:is(.open) > span:nth-child(1) {
-        @apply translate-y-2 rotate-45 ease-in-out duration-200;
-    }
+  #hamburger:is(.open) > span:nth-child(1) {
+    @apply translate-y-2 rotate-45 ease-in-out duration-200;
+  }
 
-    #hamburger:is(.open) > span:nth-child(2) {
-        @apply hidden;
-    }
+  #hamburger:is(.open) > span:nth-child(2) {
+    @apply hidden;
+  }
 
-    #hamburger:is(.open) > span:nth-child(3) {
-        @apply -rotate-45 -translate-y-2 ease-in-out duration-200;
-    }
+  #hamburger:is(.open) > span:nth-child(3) {
+    @apply -rotate-45 -translate-y-2 ease-in-out duration-200;
+  }
 
-    #hamburger:is(.open) {
-        @apply scale-110 ease-in-out duration-200;
-    }
+  #hamburger:is(.open) {
+    @apply scale-110 ease-in-out duration-200;
+  }
 
-    .open {
-        @apply flex;
-    }
+  .open {
+    @apply flex;
+  }
 
-    #mobile-bg:is(.open) {
-        @apply absolute;
-    }
+  #mobile-bg:is(.open) {
+    @apply absolute;
+  }
 </style>
