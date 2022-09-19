@@ -8,11 +8,11 @@ module.exports = {
     "./src/**/*.{astro,html,js,mdx,ts,jsx,tsx,svelte}",
     "astro.config.mjs",
   ],
-  safelist: [
-    // generate pl classes for Overview component since it is not detected by tailwindcss
-    "pl-5",
-    "pl-10",
-  ],
+  // safelist: [
+  //   // generate pl classes for Overview component since it is not detected by tailwindcss
+  //   "pl-5",
+  //   "pl-10",
+  // ],
   theme: {
     fontFamily: {
       sans: ["Montserrat", ...defaultTheme.fontFamily.sans],

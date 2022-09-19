@@ -47,4 +47,17 @@
   button:not(.reset) {
     @apply bg-accent text-white font-bold cursor-pointer shadow-xl py-2 px-4 rounded;
   }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn ease 3s;
+  }
 }

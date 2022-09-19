@@ -10,7 +10,6 @@ import remarkCapitalize from "remark-capitalize";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { h } from "hastscript";
 import { rehypePrismCommon } from "rehype-prism-plus";
-import prefetch from "@astrojs/prefetch";
 import sectionize from "remark-sectionize";
 import { setDefaultLayout } from "./src/lib/remark-default-layout.mjs";
 import { setPublishedEditedDates } from "./src/lib/remark-auto-pub-edit-date.mjs";
@@ -59,10 +58,6 @@ export default defineConfig({
       },
     }),
     tailwind({ config: { applyBaseStyles: false } }),
-    prefetch({
-      // select all internal links
-      selector: "a[href^='/']",
-    }),
     partytown(),
   ],
   experimental: {

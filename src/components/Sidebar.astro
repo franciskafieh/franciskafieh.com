@@ -16,10 +16,10 @@ const { headings } = Astro.props;
   <ul>
     {
       headings.map((heading) => (
-        <li class:list={["pl-" + 5 * (heading.depth - 2)]}>
+        <li class:list={[heading.depth - 2 === 0 ? "pl-5" : "pl-10"]}>
           <a
             href={"#" + heading.slug}
-            class="text-[#98a3b1] hover:text-primary no-underline"
+            class="text-[#98a3b1] hover:text-primary reset"
           >
             {heading.text}
           </a>

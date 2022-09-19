@@ -8,18 +8,37 @@ export interface Props {
   title: string;
   description: string;
   tags: string[];
+  pubDate: string;
 }
 
-const { readTime, title, description, tags } = Astro.props.frontmatter;
+const { readTime, title, description, tags, pubDate, updatedDate } =
+  Astro.props.frontmatter;
 
 const { headings } = Astro.props;
+
+const dateOptions: any = {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+};
 ---
 
 <Page title={title} description={description}>
   <article class="prose w-full lg:w-8/12 max-w-none">
     <div class="text-center">
       <h1 class="text-3xl font-black text-accent">{title}</h1>
-      <p>{readTime} | {tags ? tags.join(", ") : ""}</p>
+      <p>
+        {readTime}{tags ? " | " + tags.join(", ") : ""} | {
+          new Date(pubDate).toLocaleDateString("en-US", dateOptions)
+        }
+        {
+          updatedDate
+            ? "(Last Updated " +
+              new Date(updatedDate).toLocaleDateString("en-US", dateOptions) +
+              ")"
+            : ""
+        }
+      </p>
     </div>
     <slot />
   </article>
@@ -35,7 +54,7 @@ const { headings } = Astro.props;
     data-reactions-enabled="1"
     data-emit-metadata="0"
     data-input-position="top"
-    data-theme="dark"
+    data-theme="transparent_dark"
     data-lang="en"
     data-loading="lazy"
     crossorigin="anonymous"
@@ -43,29 +62,4 @@ const { headings } = Astro.props;
   ></script>
 </Page>
 
-<script defer>
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const getOverviewClassListById = (id) =>
-          document.querySelector(`#overview > ul > li > a[href="#${id}"]`)
-            .classList;
-
-        if (entry.isIntersecting) {
-          getOverviewClassListById(entry.target.children[0].id).add(
-            "!text-accent"
-          );
-        } else {
-          getOverviewClassListById(entry.target.children[0].id).remove(
-            "!text-accent"
-          );
-        }
-      });
-    },
-    { rootMargin: "-200px 0% -66% 0%" }
-  );
-
-  const sections = document.querySelectorAll("article section");
-
-  sections.forEach((section) => observer.observe(section));
-</script>
+<!-- overview script in main layout so that it works with swup -->
