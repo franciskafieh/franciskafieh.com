@@ -21,6 +21,7 @@ export default defineConfig({
     robotsTxt({
       policy: [
         {
+          userAgent: "*",
           disallow: "/form",
         },
       ],
