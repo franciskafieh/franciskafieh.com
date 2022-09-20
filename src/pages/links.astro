@@ -1,0 +1,26 @@
+---
+import Page from "../layouts/Page.astro";
+import fs from "fs";
+
+const content = fs.readFileSync("./vercel.json", "utf8");
+const json = JSON.parse(content);
+const redirects = json.redirects;
+---
+
+<Page title="Links">
+  <div class="text-center">
+    <h1 class="font-black text-6xl leading-loose">My Socials</h1>
+    {
+      redirects.map((redirect: { source: string; destination: string }) => (
+        <a
+          class="text-3xl mb-8 block"
+          href={redirect.destination}
+          target={redirect.destination.startsWith("/") ? "" : "_blank"}
+        >
+          {redirect.source.substring(1).charAt(0).toUpperCase() +
+            redirect.source.substring(2)}
+        </a>
+      ))
+    }
+  </div>
+</Page>

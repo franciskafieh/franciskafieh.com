@@ -4,9 +4,13 @@ import Page from "../../layouts/Page.astro";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return paginate(
-    (await Astro.glob("../blog/post/*.mdx")).filter(
-      (post) => !post.frontmatter.draft
-    ),
+    (await Astro.glob("../blog/post/*.mdx"))
+      .filter((post) => !post.frontmatter.draft)
+      .sort(
+        (a, b) =>
+          // @ts-ignore
+          new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)
+      ),
     { pageSize: 10 }
   );
 }
@@ -17,7 +21,7 @@ const { page } = Astro.props;
 <Page title="Blog" description="Francis Kafieh's blog">
   <div class="flex flex-col">
     {
-      page.data.map((post: { frontmatter: any; url: any }) => (
+      page.data.map((post: { url: string; frontmatter: any }) => (
         <a
           class="bg-secondary rounded-lg p-4 mb-4 drop-shadow-xl overflow-hidden no-underline text-primary reset no-prefetch"
           href={post.url}
@@ -25,17 +29,8 @@ const { page } = Astro.props;
           <p class="text-accent font-bold inline-block">
             {post.frontmatter.title}
           </p>
-          <p class="text-accent inline-block"> | {post.frontmatter.readTime}</p>
-          <p>
-            here is the desc/etc todo f f f f dsfa dsf dsfa sdf sdf ds
-            jsdkhfdsljkfhlsahfsdljkfhsdkjfsd f sdf dsf sdf sd fds fds f sdf asdf
-            dsf ds fads fsd fds fsad f shere is the desc/etc todo f f f f dsfa
-            dsf dsfa sdf sdf ds afds fds fdsf d d asdas das das das das das d
-            asd as das d asd asd asd sa
-            aaaaaaaaaaaaaaaaaaaasdfdsfsdfajdsfljsdkhfdsljkfhlsahfsdljkfhsdkjfsd
-            f sdf dsf sdf sd fds fds f sdf asdf dsf ds fads fsd fds fsad f s
-            end!
-          </p>
+          <p class="text-accent inline-block">| {post.frontmatter.readTime}</p>
+          <p>{post.frontmatter.strippedContent}</p>
         </a>
       ))
     }

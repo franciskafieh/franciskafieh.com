@@ -15,6 +15,26 @@
     {
       "source": "/twitter",
       "destination": "https://twitter.com/franciskafieh"
+    },
+    {
+      "source": "/linkedin",
+      "destination": "https://www.linkedin.com/in/franciskafieh/"
+    },
+    {
+      "source": "/email",
+      "destination": "/contact"
+    },
+    {
+      "source": "/twitch",
+      "destination": "https://www.twitch.tv/franciskafieh"
+    },
+    {
+      "source": "/github",
+      "destination": "https://github.com/franciskafieh/"
+    },
+    {
+      "source": "/youtube",
+      "destination": "https://www.youtube.com/channel/UCz9qQacQwmJNSDmkWCGHn0w"
     }
   ]
 }

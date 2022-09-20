@@ -13,6 +13,7 @@ import { rehypePrismCommon } from "rehype-prism-plus";
 import sectionize from "remark-sectionize";
 import { setDefaultLayout } from "./src/lib/remark-default-layout.mjs";
 import { setPublishedEditedDates } from "./src/lib/remark-auto-pub-edit-date.mjs";
+import { setBlogContentPreview } from "./src/lib/remark-blog-content-preview.mjs";
 
 export default defineConfig({
   site: "https://franciskafieh.com",
@@ -34,6 +35,7 @@ export default defineConfig({
           sectionize,
           setDefaultLayout,
           setPublishedEditedDates,
+          setBlogContentPreview,
         ],
       },
       rehypePlugins: {
