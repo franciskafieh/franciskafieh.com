@@ -72,7 +72,4 @@ export default defineConfig({
     // using rehype-prism-plus
     syntaxHighlight: false,
   },
-  vite: {
-    plugins: [mdxComponents()],
-  },
 });
