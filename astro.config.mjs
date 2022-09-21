@@ -14,6 +14,7 @@ import sectionize from "remark-sectionize";
 import { setDefaultLayout } from "./src/lib/remark-default-layout.mjs";
 import { setPublishedEditedDates } from "./src/lib/remark-auto-pub-edit-date.mjs";
 import { setBlogContentPreview } from "./src/lib/remark-blog-content-preview.mjs";
+import autoImports from "@mdxvac/remark-astro-autoimports";
 
 export default defineConfig({
   site: "https://franciskafieh.com",
@@ -37,6 +38,7 @@ export default defineConfig({
           setDefaultLayout,
           setPublishedEditedDates,
           setBlogContentPreview,
+          autoImports,
         ],
       },
       rehypePlugins: {
@@ -69,5 +71,8 @@ export default defineConfig({
   markdown: {
     // using rehype-prism-plus
     syntaxHighlight: false,
+  },
+  vite: {
+    plugins: [mdxComponents()],
   },
 });

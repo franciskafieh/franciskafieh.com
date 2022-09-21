@@ -13,6 +13,7 @@
     "@astrojs/partytown": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
+    "@mdxvac/remark-astro-autoimports": "^0.0.1",
     "@swup/a11y-plugin": "^2.1.0",
     "@tailwindcss/typography": "^0.5.4",
     "astro": "^1.2.0",
