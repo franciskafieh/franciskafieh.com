@@ -1,14 +1,16 @@
 ---
 export interface Props {
-  src: string;
+  name: string;
   alt: string;
   caption: string;
 }
 
-const { src, alt, caption } = Astro.props;
+const { alt, caption, name } = Astro.props;
+
+const slug = Astro.url.pathname.substring(10);
 ---
 
 <figure>
-  <img src={src} alt={alt} />
+  <img src={"/images" + slug + "/" + name} alt={alt} />
   <figcaption class="text-center">{caption}</figcaption>
 </figure>
