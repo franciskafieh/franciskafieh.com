@@ -35,6 +35,10 @@
     {
       "source": "/youtube",
       "destination": "https://www.youtube.com/channel/UCz9qQacQwmJNSDmkWCGHn0w"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/1"
     }
   ]
 }

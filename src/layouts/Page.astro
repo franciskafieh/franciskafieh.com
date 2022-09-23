@@ -166,12 +166,17 @@ const { title, description } = Astro.props.frontmatter || Astro.props;
       import SwupA11yPlugin from "@swup/a11y-plugin";
       import SwupSlideTheme from "@swup/slide-theme";
       import SwupHeadPlugin from "@swup/head-plugin";
+      import SwupScrollPlugin from "@swup/scroll-plugin";
 
       const swup = new Swup({
         plugins: [
           new SwupA11yPlugin(),
           new SwupSlideTheme(),
           new SwupHeadPlugin(),
+          new SwupScrollPlugin({
+            scrollAcceleration: 10,
+            offset: () => document.querySelector("#top").offsetHeight,
+          }),
         ],
       });
 
