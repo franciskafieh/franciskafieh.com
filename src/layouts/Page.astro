@@ -84,8 +84,7 @@ const { title, description } = Astro.props.frontmatter || Astro.props;
       }}
     />
     <script is:inline>
-      const light = localStorage.getItem("light");
-      if (light === null) {
+      if (localStorage.getItem("light") === null) {
         localStorage.setItem(
           "light",
           window.matchMedia &&
@@ -93,7 +92,7 @@ const { title, description } = Astro.props.frontmatter || Astro.props;
         );
       }
 
-      if (Boolean(JSON.parse(light))) {
+      if (Boolean(JSON.parse(localStorage.getItem("light")))) {
         document.querySelector("html").classList.remove("dark");
       }
     </script>
