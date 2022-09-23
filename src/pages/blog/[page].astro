@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPathsOptions } from "astro";
+import MailingList from "../../components/MailingList.astro";
 import Page from "../../layouts/Page.astro";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
@@ -39,4 +40,5 @@ const { page } = Astro.props;
     {page.url.prev ? <a href={page.url.prev}>&#60; Prev</a> : null}
     {page.url.next ? <a href={page.url.next}>Next &#62;</a> : null}
   </div>
+  <MailingList />
 </Page>
