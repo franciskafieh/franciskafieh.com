@@ -90,7 +90,11 @@ const { title, description } = Astro.props.frontmatter || Astro.props;
           document.querySelector("html").classList.remove("dark");
         }
       } else {
-        localStorage.setItem("light", window.matchMedia("todo").matches);
+        localStorage.setItem(
+          "light",
+          window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: light)").matches
+        );
       }
     </script>
     <script
