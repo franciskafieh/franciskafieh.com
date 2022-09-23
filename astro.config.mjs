@@ -65,7 +65,6 @@ export default defineConfig({
     }),
     tailwind({ config: { applyBaseStyles: false } }),
     partytown(),
-    astroOGImage(),
   ],
   experimental: {
     integrations: true,
