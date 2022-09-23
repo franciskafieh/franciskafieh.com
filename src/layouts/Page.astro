@@ -71,6 +71,15 @@ const { title, description } = Astro.props.frontmatter || Astro.props;
             name: "theme-color",
             content: "#FFD500",
           },
+          {
+            name: "twitter:image",
+            content: "https://franciskafieh.com/og.png",
+          },
+          {
+            name: "twitter:title",
+            content: title + " | Francis Kafieh | franciskafieh.com",
+          },
+          { name: "twitter:description", content: description },
         ],
       }}
     />
