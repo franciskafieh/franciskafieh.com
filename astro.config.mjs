@@ -5,7 +5,6 @@ import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
-import astroOGImage from "./src/lib/astro-og-image";
 
 import { getReadTime } from "./src/lib/remark-read-time.mjs";
 import remarkCapitalize from "remark-capitalize";

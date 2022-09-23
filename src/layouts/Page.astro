@@ -60,6 +60,14 @@ const { title, description } = Astro.props.frontmatter || Astro.props;
         image: { alt: "Francis Kafieh website favicon" },
       }}
       description={description}
+      extend={{
+        meta: [
+          {
+            name: "theme-color",
+            content: "##FFD500",
+          },
+        ],
+      }}
     />
     <script is:inline>
       const light = localStorage.getItem("light");
