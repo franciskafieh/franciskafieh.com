@@ -1,0 +1,16 @@
+---
+function getNavbarLinks(): { title: string; url: string }[] {
+  return [
+    { title: "resume", url: "/resume" },
+    { title: "blog", url: "/blog/1" },
+    { title: "contact", url: "/contact" },
+  ];
+}
+---
+
+
+{getNavbarLinks().map(page =>
+    <li id="links">
+        <a href={page.url} onclick="document.querySelector('#hamburger').classList.toggle('open');document.querySelector('#mobile-bg').classList.toggle('hidden');">{page.title}</a>
+    </li>
+)}

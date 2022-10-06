@@ -1,48 +1,52 @@
-<div
-  id="mobile-bg"
-  class="md:!hidden hidden top-0 left-0 w-full h-full bg-background border-b-4 border-accent"
->
-  <ul
-    class="w-full h-full text-center hidden md:!hidden flex-col flex-auto justify-around underline text-5xl items-center"
+---
+import NavbarLinksAsLi from "./NavbarLinksAsLi.astro";
+---
+
+<!-- <div class="bg-primary fixed top-0 bottom-0 left-0 right-0 z-0"></div> -->
+<div>
+  <div
+    id="mobile-bg"
+    class="md:!hidden fixed top-0 left-0 right-0 bottom-0 hidden bg-secondary border-b-4 border-accent z-10"
   >
-    <li>first</li>
-    <li>second</li>
-    <li>third</li>
-  </ul>
+    <ul
+      class="flex flex-col underline text-5xl justify-around text-center text-white items-center min-h-screen"
+    >
+      <NavbarLinksAsLi/>
+    </ul>
+  </div>
+
+  <div class="fixed right-8 top-8 z-20">
+    <button
+      id="hamburger"
+      aria-label="open mobile navigation"
+      class="md:!hidden h-5 items-center flex flex-col justify-between float-right reset"
+      onclick="document.querySelector('#hamburger').classList.toggle('open');document.querySelector('#mobile-bg').classList.toggle('hidden');"
+    >
+      <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
+      <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
+      <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
+    </button>
+  </div>
+
+  <style lang="postcss">
+    #hamburger:is(.open) > span:nth-child(1) {
+      @apply translate-y-2 rotate-45 ease-in-out duration-200;
+    }
+
+    #hamburger:is(.open) > span:nth-child(2) {
+      @apply hidden;
+    }
+
+    #hamburger:is(.open) > span:nth-child(3) {
+      @apply -rotate-45 -translate-y-2 ease-in-out duration-200;
+    }
+
+    #hamburger:is(.open) {
+      @apply scale-110 ease-in-out duration-200;
+    }
+
+    #mobile-bg:is(.open) {
+      @apply fixed;
+    }
+  </style>
 </div>
-<button
-  id="hamburger"
-  aria-label="open mobile navigation"
-  class="md:!hidden h-5 items-center flex flex-col justify-between float-right reset"
-  onclick="document.querySelector('#hamburger').classList.toggle('open');"
->
-  <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
-  <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
-  <span class="h-1 w-6 rounded-full bg-accent transition transform"></span>
-</button>
-
-<style lang="postcss">
-  #hamburger:is(.open) > span:nth-child(1) {
-    @apply translate-y-2 rotate-45 ease-in-out duration-200;
-  }
-
-  #hamburger:is(.open) > span:nth-child(2) {
-    @apply hidden;
-  }
-
-  #hamburger:is(.open) > span:nth-child(3) {
-    @apply -rotate-45 -translate-y-2 ease-in-out duration-200;
-  }
-
-  #hamburger:is(.open) {
-    @apply scale-110 ease-in-out duration-200;
-  }
-
-  .open {
-    @apply flex;
-  }
-
-  #mobile-bg:is(.open) {
-    @apply absolute;
-  }
-</style>
