@@ -7,5 +7,4 @@ export const get = () =>
     site: import.meta.env.SITE,
     items: import.meta.glob("./blog/post/*.mdx"),
     customData: `<language>en-us</language>`,
-    stylesheet: "/rss/styles.xsl",
   });
