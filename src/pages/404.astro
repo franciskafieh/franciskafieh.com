@@ -1,13 +1,31 @@
 ---
-import Page from "../layouts/Page.astro";
+import BaseHead from "../components/BaseHead.astro";
+import Nav from "../components/Nav.astro";
+import { SITE_TITLE } from "../consts";
 ---
 
-<Page title="404: Not Found" description="This page does not exist.">
-  <div class="text-center">
-    <h1 class="font-black text-6xl leading-loose">Page Not Found</h1>
-    <h2 class="text-2xl">
-      Whoops! This page doesn't exist. Would you like to <a href="/">go home?</a
-      >
-    </h2>
-  </div>
-</Page>
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Francis Kafieh | 404" description="Page not found" />
+  </head>
+  <body class="min-h-screen relative overflow-x-hidden selection:bg-surface-variant selection:text-on-surface flex flex-col">
+    
+    <Nav />
+
+    <main class="w-full px-4 md:px-16 pb-12 flex-1 flex items-center justify-center">
+      <div class="w-full max-w-5xl h-full max-h-[800px] min-h-[600px] gradient-paper relative p-8 md:p-12 lg:p-16 flex flex-col items-center justify-center shadow-[0_0_40px_rgba(56,57,46,0.03)]">
+        
+        <div class="flex flex-col items-center gap-8 text-center">
+          <h1 class="font-serif text-6xl md:text-8xl font-normal text-outline/30">404</h1>
+          <div class="flex flex-col gap-4 items-center">
+            <h2 class="font-serif text-2xl md:text-3xl font-normal">Page not found</h2>
+            <p class="font-sans text-sm text-outline max-w-md">The page you are looking for doesn't exist or has been moved.</p>
+          </div>
+          <a href="/" class="mt-8 label-md text-on-surface border-b border-outline hover:text-outline transition-colors duration-0 pb-1">return home</a>
+        </div>
+
+      </div>
+    </main>
+  </body>
+</html>

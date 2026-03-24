@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #f0f0e8; /* Slightly darker, cooler ash for more contrast */
+  --color-surface-container-low: #fdfbf5; /* Slightly lighter, warmer paper */
+  --color-surface-container: #f4f2e6;
+  --color-surface-container-lowest: #ffffff;
+  --color-primary-container: #dbe4e6;
+  --color-primary: #576062;
+  --color-on-primary: #f0f9fb;
+  --color-on-surface: #38392e;
+  --color-outline: #818174;
+  --color-outline-variant: #bbbaac;
+  --color-surface-variant: #eae9d9;
+
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Newsreader", serif;
+}
+
+/* Dark Mode Overrides */
+.dark {
+  --color-background: #161715; /* Deeper background */
+  --color-surface-container-low: #282924; /* Lighter card for more contrast */
+  --color-surface-container: #2a2b26;
+  --color-surface-container-lowest: #141512;
+  --color-primary-container: #2d3335;
+  --color-primary: #a3b1b3;
+  --color-on-primary: #111415;
+  --color-on-surface: #e6e5d8;
+  --color-outline: #7a7a6f;
+  --color-outline-variant: #4d4d45;
+  --color-surface-variant: #33342e;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-sans transition-colors duration-300;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Typography System */
+  h1, .display-lg {
+    @apply font-serif text-[3.5rem] font-normal leading-tight;
+  }
+  h2, .headline-md {
+    @apply font-serif text-[1.75rem] font-normal leading-tight;
+  }
+  h3, .title-sm {
+    @apply font-sans text-[1rem] font-medium lowercase;
+  }
+  .label-md {
+    @apply font-sans text-[0.75rem] font-semibold lowercase;
+  }
+}
+
+@layer utilities {
+  .gradient-paper {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.12'/%3E%3C/svg%3E"),
+      radial-gradient(circle at center, var(--color-surface-container-low) 0%, var(--color-surface-container) 120%);
+    box-shadow: 
+      inset 0 0 80px rgba(0, 0, 0, 0.05),
+      0 0 40px rgba(0, 0, 0, 0.06);
+  }
+  
+  .dark .gradient-paper {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E"),
+      radial-gradient(circle at center, var(--color-surface-container-low) 0%, var(--color-surface-container) 120%);
+    box-shadow: 
+      inset 0 0 80px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Markdown Prose Styles */
+.prose {
+  @apply font-sans text-base leading-relaxed text-on-surface;
+}
+.prose p {
+  @apply mb-6;
+}
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  @apply font-serif font-normal text-on-surface mt-12 mb-4;
+}
+.prose h1 { @apply text-4xl; }
+.prose h2 { @apply text-3xl; }
+.prose h3 { @apply text-2xl; }
+.prose a {
+  @apply underline decoration-[1px] decoration-outline-variant/80 underline-offset-[4px] hover:text-outline transition-colors duration-0;
+}
+.prose ul {
+  @apply list-disc list-inside mb-6 pl-4;
+}
+.prose ol {
+  @apply list-decimal list-inside mb-6 pl-4;
+}
+.prose li {
+  @apply mb-2;
+}
+.prose blockquote {
+  @apply border-l-2 border-outline pl-6 italic text-outline my-8;
+}
+.prose code {
+  @apply bg-surface-variant px-1.5 py-0.5 text-sm;
+}
+.prose pre {
+  @apply bg-surface-variant p-4 overflow-x-auto mb-6 text-sm;
+}
+.prose img {
+  @apply w-full h-auto my-8 grayscale-[20%] contrast-125 mix-blend-multiply;
+}
+.dark .prose img {
+  @apply mix-blend-normal opacity-90;
+}

@@ -1,0 +1,31 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="w-full px-8 md:px-16 pt-12 pb-8 flex justify-between items-baseline shrink-0">
+  <a href="/" class="headline-md hover:text-outline normal-case transition-colors duration-0">Francis Kafieh</a>
+  <div class="flex gap-8 items-baseline">
+    <a href="/work" class={`label-md hover:text-outline transition-colors duration-0 ${currentPath.startsWith('/work') ? 'text-outline' : ''}`}>work</a>
+    <a href="/blog" class={`label-md hover:text-outline transition-colors duration-0 ${currentPath.startsWith('/blog') ? 'text-outline' : ''}`}>blog</a>
+    <button id="theme-toggle" class="label-md hover:text-outline cursor-pointer transition-colors duration-0">dark mode</button>
+  </div>
+</nav>
+
+<script>
+  // Dark mode toggle logic
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  
+  // Set initial button text based on current state (set by BaseHead script)
+  if (themeToggleBtn) {
+    const isDark = document.documentElement.classList.contains('dark');
+    themeToggleBtn.textContent = isDark ? 'light mode' : 'dark mode';
+
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isNowDark = document.documentElement.classList.contains('dark');
+      
+      localStorage.setItem('theme', isNowDark ? 'dark' : 'light');
+      themeToggleBtn.textContent = isNowDark ? 'light mode' : 'dark mode';
+    });
+  }
+</script>

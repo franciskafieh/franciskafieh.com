@@ -1,10 +1,16 @@
-import rss from "@astrojs/rss";
+import { getCollection } from 'astro:content';
+import rss from '@astrojs/rss';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-export const get = () =>
-  rss({
-    title: "Francis Kafieh’s Blog",
-    description: "Francis' blog about tech and productivity",
-    site: import.meta.env.SITE,
-    items: import.meta.glob("./blog/post/*.mdx"),
-    customData: `<language>en-us</language>`,
-  });
+export async function GET(context) {
+	const posts = await getCollection('blog');
+	return rss({
+		title: SITE_TITLE,
+		description: SITE_DESCRIPTION,
+		site: context.site,
+		items: posts.map((post) => ({
+			...post.data,
+			link: `/blog/${post.id}/`,
+		})),
+	});
+}
