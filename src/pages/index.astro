@@ -1,0 +1,397 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Nav from "../components/Nav.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Francis Kafieh | home" description={SITE_DESCRIPTION} />
+  </head>
+  <body
+    class="min-h-screen relative overflow-x-hidden selection:bg-surface-variant selection:text-on-surface flex flex-col"
+  >
+    <!-- Navigation (The Floating Script) -->
+    <Nav />
+
+    <!-- Main Content Area -->
+    <main
+      class="w-full px-4 md:px-16 pb-12 flex-1 flex items-center justify-center"
+    >
+      <!-- The Postcard (The Inset) -->
+      <div
+        class="w-full max-w-5xl h-full max-h-[800px] min-h-[600px] gradient-paper relative p-8 md:p-12 lg:p-16 flex flex-col justify-between shadow-[0_0_40px_rgba(56,57,46,0.03)] overflow-hidden sm:overflow-visible"
+      >
+        <!-- Vintage Stamp Cluster (Top Right) -->
+        <div
+          class="absolute top-8 right-4 md:top-12 md:right-8 opacity-90 pointer-events-none z-0 scale-100 md:scale-110 origin-top-right"
+        >
+          <div class="relative w-[320px] h-[220px]">
+            <!-- Airmail Sticker (Blue/Red) -->
+            <svg
+              width="140"
+              height="45"
+              viewBox="0 0 140 45"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute top-0 left-0 rotate-[-8deg] drop-shadow-md"
+            >
+              <rect
+                width="140"
+                height="45"
+                fill="#fcf9f0"
+                stroke="#d1d1c7"
+                stroke-width="0.5"></rect>
+              <rect x="4" y="4" width="132" height="37" fill="#3a5a8c"></rect>
+              <rect
+                x="6"
+                y="6"
+                width="128"
+                height="33"
+                stroke="#fcf9f0"
+                stroke-width="1"
+                fill="none"></rect>
+              <text
+                x="70"
+                y="22"
+                font-family="Inter"
+                font-size="10"
+                font-weight="bold"
+                fill="#fcf9f0"
+                text-anchor="middle"
+                letter-spacing="1">PAR AVION</text
+              >
+              <text
+                x="70"
+                y="32"
+                font-family="Inter"
+                font-size="7"
+                font-weight="bold"
+                fill="#fcf9f0"
+                text-anchor="middle"
+                letter-spacing="1">AIR MAIL</text
+              >
+              <!-- Red arrows -->
+              <path
+                d="M15 22 L35 22 L30 17 M35 22 L30 27"
+                stroke="#b83b3b"
+                stroke-width="2"
+                fill="none"></path>
+              <path
+                d="M125 22 L105 22 L110 17 M105 22 L110 27"
+                stroke="#b83b3b"
+                stroke-width="2"
+                fill="none"></path>
+            </svg>
+
+            <!-- Original CN Tower Stamp -->
+            <svg
+              width="130"
+              height="150"
+              viewBox="0 0 120 140"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute top-8 left-[140px] rotate-[6deg] drop-shadow-md"
+            >
+              <!-- Jagged Edge Background -->
+              <path
+                d="M0 0 L10 5 L20 0 L30 5 L40 0 L50 5 L60 0 L70 5 L80 0 L90 5 L100 0 L110 5 L120 0 
+                       L115 10 L120 20 L115 30 L120 40 L115 50 L120 60 L115 70 L120 80 L115 90 L120 100 L115 110 L120 120 L115 130 L120 140
+                       L110 135 L100 140 L90 135 L80 140 L70 135 L60 140 L50 135 L40 140 L30 135 L20 140 L10 135 L0 140
+                       L5 130 L0 120 L5 110 L0 100 L5 90 L0 80 L5 70 L0 60 L5 50 L0 40 L5 30 L0 20 L5 10 Z"
+                fill="#fcf9f0"
+                stroke="#bbbaac"
+                stroke-width="1"></path>
+              <!-- Inner Frame -->
+              <rect
+                x="15"
+                y="15"
+                width="90"
+                height="110"
+                stroke="#818174"
+                stroke-width="1"
+                fill="none"></rect>
+              <!-- CN Tower Silhouette -->
+              <!-- Base/Stem -->
+              <rect x="59" y="70" width="2" height="50" fill="#576062"></rect>
+              <!-- Main Pod -->
+              <path
+                d="M56 65 L64 65 L62 70 L58 70 Z"
+                fill="#576062"></path>
+              <!-- Upper Spire tapering to a point -->
+              <path
+                d="M59 65 L61 65 L60 30 Z"
+                fill="#576062"></path>
+              <!-- Cityscape -->
+              <rect x="25" y="100" width="15" height="20" fill="#576062"></rect>
+              <rect x="42" y="90" width="12" height="30" fill="#576062"></rect>
+              <rect x="65" y="95" width="18" height="25" fill="#576062"></rect>
+              <rect x="85" y="105" width="10" height="15" fill="#576062"></rect>
+              <!-- Text -->
+              <text
+                x="60"
+                y="25"
+                font-family="Inter"
+                font-size="8"
+                font-weight="600"
+                fill="#38392e"
+                text-anchor="middle"
+                letter-spacing="2">CANADA</text
+              >
+              <text
+                x="60"
+                y="120"
+                font-family="Newsreader"
+                font-size="12"
+                fill="#38392e"
+                text-anchor="middle">Toronto</text
+              >
+              <text
+                x="20"
+                y="30"
+                font-family="Inter"
+                font-size="10"
+                fill="#38392e">5¢</text
+              >
+            </svg>
+
+            <!-- Cancellation Mark (Black wavy lines & circle) -->
+            <svg
+              width="240"
+              height="120"
+              viewBox="0 0 240 120"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute top-[20px] left-[20px] mix-blend-multiply opacity-70 pointer-events-none"
+            >
+              <!-- Wavy lines -->
+              <path
+                d="M60 30 Q 80 20, 100 30 T 140 30 T 180 30 T 220 30"
+                stroke="#38392e"
+                stroke-width="1.5"
+                fill="none"></path>
+              <path
+                d="M60 45 Q 80 35, 100 45 T 140 45 T 180 45 T 220 45"
+                stroke="#38392e"
+                stroke-width="1.5"
+                fill="none"></path>
+              <path
+                d="M60 60 Q 80 50, 100 60 T 140 60 T 180 60 T 220 60"
+                stroke="#38392e"
+                stroke-width="1.5"
+                fill="none"></path>
+              <path
+                d="M60 75 Q 80 65, 100 75 T 140 75 T 180 75 T 220 75"
+                stroke="#38392e"
+                stroke-width="1.5"
+                fill="none"></path>
+              <path
+                d="M60 90 Q 80 80, 100 90 T 140 90 T 180 90 T 220 90"
+                stroke="#38392e"
+                stroke-width="1.5"
+                fill="none"></path>
+              <!-- Circle -->
+              <circle
+                cx="60"
+                cy="60"
+                r="35"
+                stroke="#38392e"
+                stroke-width="1.5"
+                fill="none"></circle>
+              <circle
+                cx="60"
+                cy="60"
+                r="23"
+                stroke="#38392e"
+                stroke-width="0.5"
+                fill="none"></circle>
+              <text
+                x="60"
+                y="45"
+                font-family="Inter"
+                font-size="8"
+                font-weight="bold"
+                fill="#38392e"
+                text-anchor="middle"
+                letter-spacing="1">TORONTO</text
+              >
+              <text
+                x="60"
+                y="64"
+                font-family="Inter"
+                font-size="10"
+                fill="#38392e"
+                text-anchor="middle">PM 4</text
+              >
+              <text
+                x="60"
+                y="78"
+                font-family="Inter"
+                font-size="8"
+                fill="#38392e"
+                text-anchor="middle">MAR 24</text
+              >
+              <text
+                x="60"
+                y="88"
+                font-family="Inter"
+                font-size="7"
+                fill="#38392e"
+                text-anchor="middle">2026</text
+              >
+            </svg>
+
+            <!-- Red "REGISTERED" Mark -->
+            <svg
+              width="110"
+              height="45"
+              viewBox="0 0 100 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute top-[160px] left-[70px] rotate-[-15deg] mix-blend-multiply opacity-80"
+            >
+              <rect
+                x="2"
+                y="2"
+                width="96"
+                height="36"
+                stroke="#b83b3b"
+                stroke-width="2"
+                fill="none"></rect>
+              <rect
+                x="6"
+                y="6"
+                width="88"
+                height="28"
+                stroke="#b83b3b"
+                stroke-width="1"
+                fill="none"></rect>
+              <text
+                x="50"
+                y="20"
+                font-family="Inter"
+                font-size="10"
+                font-weight="bold"
+                fill="#b83b3b"
+                text-anchor="middle"
+                letter-spacing="1">REGISTERED</text
+              >
+              <text
+                x="50"
+                y="30"
+                font-family="Inter"
+                font-size="6"
+                fill="#b83b3b"
+                text-anchor="middle"
+                letter-spacing="1">NO. 4029</text
+              >
+            </svg>
+          </div>
+        </div>
+
+        <!-- Postcard Content -->
+        <div class="flex flex-col gap-8 md:gap-10 max-w-xl z-10">
+          <!-- Name Header -->
+          <div class="flex flex-col gap-6 md:gap-8">
+            <h3
+              class="font-serif text-4xl md:text-[3rem] font-normal leading-tight normal-case"
+            >
+              Francis Kafieh
+            </h3>
+
+            <div class="flex flex-col gap-2">
+              <h4
+                class="text-[0.65rem] font-sans font-medium text-outline uppercase tracking-[0.2em]"
+              >
+                electronic mail
+              </h4>
+              <a
+                href="mailto:hello@franciskafieh.com"
+                class="font-serif text-base md:text-lg text-on-surface underline decoration-[1px] decoration-outline-variant/80 underline-offset-[4px] hover:text-outline w-fit normal-case"
+                >hello@franciskafieh.com</a
+              >
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h4
+                class="text-[0.65rem] font-sans font-medium text-outline uppercase tracking-[0.2em]"
+              >
+                linkedin
+              </h4>
+              <a
+                href="https://www.linkedin.com/in/franciskafieh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-serif text-base md:text-lg text-on-surface hover:text-outline flex items-center gap-2 w-fit normal-case"
+              >
+                franciskafieh <span class="text-sm font-sans font-light text-outline"
+                  >↗</span
+                >
+              </a>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h4
+                class="text-[0.65rem] font-sans font-medium text-outline uppercase tracking-[0.2em]"
+              >
+                twitter
+              </h4>
+              <span
+                class="font-serif text-base md:text-lg text-outline italic w-fit normal-case"
+              >
+                coming soon
+              </span>
+            </div>
+          </div>
+
+          <!-- Availability Note -->
+          <div class="max-w-sm mt-2 md:mt-4">
+            <p
+              class="font-sans text-xs md:text-sm text-outline leading-relaxed lowercase"
+            >
+              site under construction, but cool shit coming soon (for real this time).
+            </p>
+          </div>
+        </div>
+
+        <!-- Footer / Status Bar -->
+        <div
+          class="mt-8 pt-8 flex flex-col sm:flex-row justify-between gap-6 sm:gap-11 z-10"
+        >
+          <div class="flex flex-col gap-1 md:gap-2 w-full sm:w-auto">
+            <span
+              class="text-[0.65rem] font-sans font-medium text-outline uppercase tracking-[0.2em]"
+              >location</span
+            >
+            <span class="font-sans text-xs md:text-sm lowercase"
+              >toronto</span
+            >
+          </div>
+
+          <div class="flex flex-col gap-1 md:gap-2 w-full sm:w-auto">
+            <span
+              class="text-[0.65rem] font-sans font-medium text-outline uppercase tracking-[0.2em]"
+              >employed at</span
+            >
+            <span class="font-sans text-xs md:text-sm lowercase"
+              >shopify inc.</span
+            >
+          </div>
+
+          <div class="flex flex-col gap-1 md:gap-2 w-full sm:w-auto">
+            <span
+              class="text-[0.65rem] font-sans font-medium text-outline uppercase tracking-[0.2em]"
+              >building</span
+            >
+            <span
+              class="font-sans text-xs md:text-sm lowercase flex items-center gap-3"
+            >
+              cardwhisper
+            </span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

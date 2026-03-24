@@ -1,0 +1,60 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Nav from "../components/Nav.astro";
+import { SITE_TITLE } from "../consts";
+
+const projects: any[] = [
+  // {
+  //   title: "Project Alpha",
+  //   role: "Design & Engineering",
+  //   year: "2025",
+  //   description: "A comprehensive digital system designed to reduce noise and increase focus for creative professionals.",
+  //   link: "#"
+  // },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Francis Kafieh | work" description="Things I've built." />
+  </head>
+  <body class="min-h-screen relative overflow-x-hidden selection:bg-surface-variant selection:text-on-surface flex flex-col">
+    
+    <Nav />
+
+    <main class="w-full px-4 md:px-16 pb-12 flex-1 flex items-center justify-center">
+      <div class="w-full max-w-5xl h-full min-h-[600px] gradient-paper relative p-8 md:p-12 lg:p-16 flex flex-col shadow-[0_0_40px_rgba(56,57,46,0.03)]">
+        
+        <div class="mb-16">
+          <h1 class="font-serif text-3xl md:text-4xl font-normal leading-tight">Work</h1>
+          <p class="font-sans text-sm text-outline mt-4 max-w-md">Things I've built.</p>
+        </div>
+
+        <div class="flex flex-col gap-12 md:gap-16">
+          {projects.length > 0 ? (
+            projects.map((project) => (
+              <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4 group">
+                <div class="flex flex-col gap-2 max-w-xl">
+                  <a href={project.link} class="font-serif text-xl md:text-2xl text-on-surface hover:text-outline transition-colors duration-0 w-fit">
+                    {project.title}
+                  </a>
+                  <p class="font-sans text-sm text-outline leading-relaxed">{project.description}</p>
+                </div>
+                <div class="flex gap-6 md:gap-12 text-[0.65rem] font-sans font-medium text-outline uppercase tracking-[0.2em] md:text-right">
+                  <span>{project.role}</span>
+                  <span>{project.year}</span>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div class="flex items-center justify-center py-24">
+              <span class="font-serif text-xl text-outline italic">coming soon.</span>
+            </div>
+          )}
+        </div>
+
+      </div>
+    </main>
+  </body>
+</html>
